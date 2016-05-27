@@ -29,3 +29,12 @@ ENV PATH ${PATH}:/opt/ant/bin
 RUN apt-get install -y xvfb
 COPY xvfb.sh /etc/init.d/xvfb
 RUN chmod +x /etc/init.d/xvfb
+
+RUN gpg --keyserver pgp.mit.edu --recv-keys 3EE67F3D0FF405B2 && \
+    gpg --export 3EE67F3D0FF405B2 > 3EE67F3D0FF405B2.gpg && \
+    apt-key add ./3EE67F3D0FF405B2.gpg && \
+    rm ./3EE67F3D0FF405B2.gpg
+    
+RUN echo "deb http://packages.linuxmint.com debian import" >> /etc/apt/sources.list
+
+RUN apt-get update && apt-get install -y firefox

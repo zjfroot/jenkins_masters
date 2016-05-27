@@ -1,5 +1,6 @@
 #!/bin/bash
 set -x
+set -e
 echo rebuild container
 ./build.sh
 echo stopping old container
