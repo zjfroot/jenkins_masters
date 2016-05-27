@@ -25,3 +25,7 @@ RUN cd && wget -q http://www.eu.apache.org/dist//ant/binaries/apache-ant-${ANT_V
 
 ENV ANT_HOME /opt/ant
 ENV PATH ${PATH}:/opt/ant/bin
+
+RUN apt-get install -y xvfb
+COPY xvfb.sh /etc/init.d/xvfb
+RUN chmod +x /etc/init.d/xvfb
