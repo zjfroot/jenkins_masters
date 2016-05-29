@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t jenkins2 .
+docker build -t zjfroot/jenkins2 .
